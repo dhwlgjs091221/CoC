@@ -2,7 +2,7 @@ import asyncio
 import websockets
 
 class ChatClient:
-    def __init__(self, uri="wss://YOUR_CHAT_SERVER_URL/ws"):
+    def __init__(self, uri="wss://web-production-91c78.up.railway.app/ws"):
         self.uri = uri
         self.messages = []
 
