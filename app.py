@@ -2,6 +2,8 @@
 import streamlit as st
 from character_manager import create_character, save_character, load_character
 import os
+from chat_client import ChatClient
+
 
 st.set_page_config(page_title="크툴루의 부름 탐사자 생성기", layout="wide")
 #st.set_page_config(page_title="탐사자 생성 + 채팅", layout="wide")
