@@ -38,3 +38,26 @@ elif menu == "탐사자 불러오기":
     if st.button("📤 불러오기"):
         character = load_character(os.path.join("sample_data", selected_file))
         st.json(character)
+
+
+
+st.set_page_config(page_title="탐사자 생성 + 채팅", layout="wide")
+st.title("🧍 탐사자 생성 + 💬 멀티 채팅")
+
+# 채팅 클라이언트 초기화
+if "chat_client" not in st.session_state:
+    st.session_state.chat_client = ChatClient()
+
+# 채팅 메시지 보내기
+with st.form("chat_form"):
+    username = st.text_input("이름", key="chat_user")
+    message = st.text_input("메시지", key="chat_message")
+    submitted = st.form_submit_button("전송")
+
+    if submitted and message.strip():
+        asyncio.run(st.session_state.chat_client.run(f"{username}: {message}"))
+
+# 받은 메시지 표시
+st.subheader("🔊 실시간 채팅 로그")
+for msg in st.session_state.chat_client.messages[-20:]:
+    st.markdown(f"- {msg}")
