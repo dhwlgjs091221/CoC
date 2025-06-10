@@ -1,0 +1,14 @@
+
+{
+    "name": "기본탐사자",
+    "occupation": "고고학자",
+    "age": 32,
+    "abilities": {
+        "STR": 60,
+        "DEX": 55,
+        "INT": 70,
+        "POW": 50,
+        "APP": 45,
+        "EDU": 80
+    }
+}
